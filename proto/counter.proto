@@ -1,0 +1,16 @@
+syntax = "proto3"; // 声明protobuf版本
+
+option go_package = ".;pb";
+
+service Counter {
+  rpc Sum (stream NumberReq) returns (stream NumberRep) {}
+}
+
+message NumberReq {
+  int64 x = 1;
+  int64 y = 2;
+}
+
+message NumberRep {
+  int64 result = 1;
+}
